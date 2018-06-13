@@ -22,13 +22,18 @@ ansible-playbook /vagrant/playbooks/ssh-addkey.yml --ask-pass
 You need to specify a region as well
 
 ```
-vi .aws/credentials
+.aws/credentials
 
+[default]
+aws_access_key_id=
+aws_secret_access_key=
+region=us-east
 ```
-Set your LAMBDA_ARN [here](/playbooks/deploy-lambda-function.yml#L11)
+And lastly, Set your `LAMBDA_ARN` [here](/playbooks/deploy-lambda-function.yml#L11)
 
 
-## Install
+## Installing packages
+AWS [requires](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html) that all packages are in the same dir as the .py files.
 
 ```
 pip3 install package -t /home/vagrant/app/ 
