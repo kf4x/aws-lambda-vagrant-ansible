@@ -1,0 +1,20 @@
+- name: Deploy AWS Lambda function
+  hosts: nix
+  vars:
+    ansible_python_interpreter: "/home/vagrant/venvs/ansible/bin/python"
+  
+  tasks:
+    - archive:
+        path: /home/vagrant/app/
+        format: zip
+        dest: /home/vagrant/app.zip
+    - set_fact: LAMBDA_ARN="~~~~~YOUR_ARN_ROLE~~~~~~"
+    - name: Create lambda function
+      lambda:
+        name: "my_tester"
+        state: present
+        zip_file: /home/vagrant/app.zip
+        runtime: 'python3.6'
+        role: "{{LAMBDA_ARN}}"
+        handler: 'lambda.run_handler'
+        description: ""       

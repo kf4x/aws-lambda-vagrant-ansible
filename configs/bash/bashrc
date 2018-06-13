@@ -1,0 +1,3 @@
+if [ ~/.bash_custom ] ; then
+    source ~/.bash_custom
+fi

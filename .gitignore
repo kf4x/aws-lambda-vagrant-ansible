@@ -1,0 +1,5 @@
+.vagrant
+config/
+*.retry
+*.zip
+*.pem
