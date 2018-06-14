@@ -18,7 +18,9 @@ ansible-playbook /vagrant/playbooks/ssh-addkey.yml --ask-pass
 
 ```
 
-## AWS creds
+## AWS
+
+###  Credentials
 You need to specify a region as well
 
 ```
@@ -29,7 +31,11 @@ aws_access_key_id=
 aws_secret_access_key=
 region=us-east
 ```
-And lastly, Set your `LAMBDA_ARN` [here](/playbooks/deploy-lambda-function.yml#L11)
+### Lambda
+
+Set `LAMBDA_ARN` [here](/playbooks/deploy-lambda-function.yml#L11)
+Set `name` [here](/playbooks/deploy-lambda-function.yml#L14)
+Set `description` [here](/playbooks/deploy-lambda-function.yml#L20)
 
 
 ## Installing packages
