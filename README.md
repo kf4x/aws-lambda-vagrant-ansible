@@ -1,8 +1,10 @@
-# Running Vagrant
+# Welcome
+
+This will (hopefully) make it easy to deploy a python 3.6 lambda to AWS.
 
 
-## Further setup
-```
+## Initial Setup
+```bash
 # build
 vagrant up
 
@@ -14,8 +16,6 @@ ssh-keygen -t rsa -b 2048
 
 # set up ansible
 ansible-playbook /vagrant/playbooks/ssh-addkey.yml --ask-pass
-
-
 ```
 
 ## AWS
@@ -40,14 +40,15 @@ You will need to edit:
 
 
 ## Installing packages
-AWS [requires](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html) that all packages are in the same dir as the .py files.
+When deploying,AWS-Lambda [requires](https://docs.aws.amazon.com/lambda/latest/dg/lambda-python-how-to-create-deployment-package.html) that all packages are in the same dir as the .py files.
 
 ```
 pip3 install package -t /home/vagrant/app/ 
 ```
 
 ## Deploy
+Calls an ansible playbook to zip and send up to aws
 
-```
+```bash
 deploy
 ```
